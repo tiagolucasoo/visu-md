@@ -1,0 +1,166 @@
+/* Logo "tiago lucas •" — cores mapeadas para as variáveis do tema Visu-Md */
+
+.container-logo {
+  --logo-primary: rgb(var(--c-primary));
+  --logo-dark: rgb(var(--c-on-surface));
+  --logo-accent: rgb(var(--c-tertiary));
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: "Space Mono", monospace;
+  font-weight: 600;
+  font-size: 1.2rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  user-select: none;
+}
+
+.container-logo:hover {
+  background-color: rgb(var(--c-primary) / 0.08);
+}
+
+.container-logo:focus-visible {
+  outline: 2px solid var(--logo-primary);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   LOGO ITEMS STYLING
+   ======================================== */
+
+.logo-item1,
+.logo-item3 {
+  color: var(--logo-primary);
+  font-weight: 700;
+}
+
+.logo-item2 {
+  color: var(--logo-dark);
+  font-weight: 700;
+}
+
+.logo-item4 {
+  color: var(--logo-accent);
+  font-weight: 700;
+}
+
+.container-logo span {
+  display: inline-block;
+  transition: all 0.15s ease;
+  letter-spacing: 0.5px;
+}
+
+/* ========================================
+   HOVER ANIMATIONS
+   ======================================== */
+
+.container-logo:hover .logo-item1 {
+  transform: translateY(-3px);
+}
+
+.container-logo:hover .logo-item2 {
+  color: var(--logo-primary);
+  transform: skewX(-5deg);
+}
+
+.container-logo:hover .logo-item3 {
+  transform: rotate(-10deg);
+}
+
+.container-logo:hover .logo-item4 {
+  transform: scale(1.25) rotate(8deg);
+  animation: logo-bounce 0.6s ease-in-out;
+}
+
+/* Bounce animation */
+@keyframes logo-bounce {
+  0%,
+  100% {
+    transform: scale(1.25) rotate(8deg) translateY(0);
+  }
+  50% {
+    transform: scale(1.25) rotate(8deg) translateY(-6px);
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1024px) {
+  .container-logo {
+    font-size: 1.1rem;
+    gap: 4px;
+    padding: 0.35rem 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-logo {
+    font-size: 1rem;
+    gap: 3px;
+    padding: 0.35rem 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .container-logo {
+    font-size: 0.95rem;
+    gap: 2px;
+    padding: 0.35rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-logo {
+    font-size: 0.9rem;
+    gap: 2px;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .container-logo span {
+    letter-spacing: 0.2px;
+  }
+
+  .container-logo:hover .logo-item1 {
+    transform: translateY(-2px);
+  }
+
+  .container-logo:hover .logo-item4 {
+    transform: scale(1.2) rotate(8deg);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .container-logo,
+  .container-logo span,
+  .container-logo:hover .logo-item1,
+  .container-logo:hover .logo-item2,
+  .container-logo:hover .logo-item3,
+  .container-logo:hover .logo-item4 {
+    animation: none;
+    transition: none;
+    transform: none;
+  }
+
+  .container-logo:hover .logo-item2 {
+    color: var(--logo-primary);
+  }
+}
+
+/* Print styles */
+@media print {
+  .container-logo {
+    cursor: default;
+  }
+
+  .container-logo:hover {
+    background-color: transparent;
+  }
+}
